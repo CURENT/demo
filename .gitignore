@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# packages
+pkgs/agvis
+pkgs/andes

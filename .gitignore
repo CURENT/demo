@@ -131,3 +131,5 @@ dmypy.json
 # packages
 pkgs/agvis
 pkgs/andes
+
+.DS_Store

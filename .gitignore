@@ -129,7 +129,10 @@ dmypy.json
 .pyre/
 
 # packages
-pkgs/agvis
-pkgs/andes
+/demo/data/source
+
+# images
+/demo/data/img/evsfr
+/demo/data/img/vis
 
 .DS_Store

@@ -15,5 +15,6 @@ chardet
 psutil
 texttable
 imageio
+gtts
 git+https://github.com/garrettj403/SciencePlots
 git+https://github.com/CURENT/andes.git@develop

@@ -132,7 +132,9 @@ dmypy.json
 /demo/data/source
 
 # images
-/demo/data/img/evsfr
-/demo/data/img/vis
+/demo/data/img/evsfr/*.png
+/demo/data/img/evsfr/*.gif
+/demo/data/img/vis/*.gif
+/demo/data/img/vis/*.png
 
 .DS_Store

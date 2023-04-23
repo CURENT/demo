@@ -14,7 +14,8 @@ coloredlogs
 chardet
 psutil
 texttable
-imageio
+jupyter
+moviepy
 gtts
 git+https://github.com/garrettj403/SciencePlots
 git+https://github.com/CURENT/andes.git@develop

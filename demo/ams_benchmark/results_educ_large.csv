@@ -1,7 +1,7 @@
 ,time,UC,ED
-0,ams_mats,0.2223,0.2238
-1,ams_parse,14.8685,19.6837
-2,ams_eval,39.3289,48.691
+0,ams_mats,0.2366,0.2265
+1,ams_parse,0.0063,0.0042
+2,ams_eval,38.9164,48.0084
 3,ams_final,0.0001,0.0001
-4,ams_postinit,0.0007,0.0001
-5,ams_solver,45.2441,39.0214
+4,ams_postinit,0.0008,0.0001
+5,ams_solver,45.7869,39.7156

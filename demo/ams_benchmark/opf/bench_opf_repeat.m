@@ -72,6 +72,6 @@ for n_case = 1:length(cases)
 end
 
 % Write the CSV output to a file
-fileID = fopen('results_matpower_repeat.csv', 'w');
+fileID = fopen('../results/results_matpower_repeat.csv', 'w');
 fprintf(fileID, '%s', csv_output);
 fclose(fileID);

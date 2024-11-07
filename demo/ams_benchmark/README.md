@@ -1,4 +1,4 @@
-# AMS Benchmark
+# AMS Benchmark Study
 
 This folder contains benchmarking tools and scripts for various power system optimization tasks using different software environments.
 
@@ -41,7 +41,24 @@ This folder contains benchmarking tools and scripts for various power system opt
 
 ## Software Environment
 
-TODO: A CONDA ENV file.
+To recreate the conda environment used for the benchmark, follow these steps:
+
+1. **Ensure you have Conda installed**: If you don't have Conda installed, you can download and install it from the official Conda website.
+1. **Create the environment**: Use the `environment.yml` file to create the environment by running the following command in your terminal:
+
+    ```bash
+    conda env create -f environment.yml
+    ```
+1. **Activate the environment**: Once the environment is created, activate it with:
+
+    ```bash
+    conda activate ams
+    ```
+1. **Verify the installation**: Ensure all packages are installed correctly by listing the installed packages:
+
+    ```bash
+    conda list
+    ```
 
 <details>
 <summary><strong>Tools version</strong></summary>

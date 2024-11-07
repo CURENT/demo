@@ -7,36 +7,42 @@ This folder contains benchmarking tools and scripts for various power system opt
 <details>
 <summary><strong>opf</strong></summary>
 
-- **[cases](./opf/cases/):** Power flow cases in MATPOWER .m format, and some EDUC cases in AMS .xlsx format.
-- **[bench_opf.ipynb](./opf/bench_opf.ipynb):** Benchmarking notebook for OPF, using AMS and pandapower.
-- **[bench_opf_repeat.ipynb](./opf/bench_opf_repeat.ipynb):** Benchmarking notebook for OPF with multiple load levels, using AMS and pandapower.
-- **[bench_opf.m](./opf/bench_opf.m):** Benchmarking script for OPF, using MATPOWER with MATLAB.
-- **[bench_opf_repeat.m](./opf/bench_opf_repeat.m):** Benchmarking script for OPF with multiple load levels, using MATPOWER with MATLAB.
-- **[lfs_data.csv](./opf/lfs_data.csv):** Load profiles for `bench_opf_repeat.ipynb` and `bench_opf_repeat.m`.
-- **[bench_educ.ipynb](./opf/bench_educ.ipynb):** Benchmarking notebook for EDUC, using AMS.
-- **[bench_educ_large.ipynb](./opf/bench_educ_large.ipynb):** Benchmarking notebook for large-scale EDUC, using AMS.
+**[cases](./opf/cases/):** Power flow cases in MATPOWER .m format, and some EDUC cases in AMS .xlsx format.
+**[bench_opf.ipynb](./opf/bench_opf.ipynb):** Benchmarking notebook for OPF, using AMS and pandapower.
+**[bench_opf_repeat.ipynb](./opf/bench_opf_repeat.ipynb):** Benchmarking notebook for OPF with multiple load levels, using AMS and pandapower.
+**[bench_opf.m](./opf/bench_opf.m):** Benchmarking script for OPF, using MATPOWER with MATLAB.
+**[bench_opf_repeat.m](./opf/bench_opf_repeat.m):** Benchmarking script for OPF with multiple load levels, using MATPOWER with MATLAB.
+**[lfs_data.csv](./opf/lfs_data.csv):** Load profiles for `bench_opf_repeat.ipynb` and `bench_opf_repeat.m`.
+**[bench_educ.ipynb](./opf/bench_educ.ipynb):** Benchmarking notebook for EDUC, using AMS.
+**[bench_educ_large.ipynb](./opf/bench_educ_large.ipynb):** Benchmarking notebook for large-scale EDUC, using AMS.
 
 </details>
 
 <details>
 <summary><strong>UCCase</strong></summary>
 
-- **Large-scale unit commitment case synthesized from the Grid Optimization Competition (GOC) Challenge 2.**
+Large-scale unit commitment case synthesized from the Grid Optimization Competition (GOC) Challenge 2.
 
 </details>
 
 <details>
 <summary><strong>vis</strong></summary>
 
-- **[bench_vis.ipynb](./vis/bench_vis.ipynb):** Benchmarking notebook for virtual inertia support.
+**[bench_vis.ipynb](./vis/bench_vis.ipynb):** Benchmarking notebook for virtual inertia support.
 
 </details>
 
 <details>
-<summary><strong>Rest</strong></summary>
+<summary><strong>results</strong></summary>
 
-- **[bench_plot.ipynb](./bench_plot.ipynb):** Plotting notebook for the benchmarking results.
+The generated benchmarking results.
 
+</details>
+
+<details>
+<summary><strong>plot</strong></summary>
+
+Scripts to plot and generated figures.
 </details>
 
 ## Software Environment
@@ -58,6 +64,12 @@ To recreate the conda environment used for the benchmark, follow these steps:
 
     ```bash
     conda list
+    ```
+
+1. **Install the latest AMS**: If you want to use the latest version of AMS, you can install it from the source. 
+    
+    ```bash
+    pip install git+https://github.com/CURENT/ams.git
     ```
 
 <details>

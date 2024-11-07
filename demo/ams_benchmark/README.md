@@ -2,7 +2,8 @@
 
 This folder contains benchmarking tools and scripts for various power system optimization tasks using different software environments.
 
-## Table of Contents
+<details>
+<summary><strong>Table of Contents</strong></summary>
 
 <details>
 <summary><strong>opf</strong></summary>
@@ -22,6 +23,8 @@ This folder contains benchmarking tools and scripts for various power system opt
 <summary><strong>UCCase</strong></summary>
 
 Large-scale unit commitment case synthesized from the Grid Optimization Competition (GOC) Challenge 2.
+
+> S. Elbert et al., “ARPA-E Grid Optimization (GO) Competition Challenge 2.” DOE Open Energy Data Initiative (OEDI); Pacific Northwest National Laboratory, p. 29 files, 2024. doi: 10.25984/2448433.
 
 </details>
 
@@ -43,6 +46,8 @@ The generated benchmarking results.
 <summary><strong>plot</strong></summary>
 
 Scripts to plot and generated figures.
+</details>
+
 </details>
 
 ## Software Environment
@@ -91,3 +96,7 @@ To recreate the conda environment used for the benchmark, follow these steps:
 - **MATPOWER**: Version 7.1 (08-Oct-2020)
 
 </details>
+
+## Contributors
+
+[Jinning Wang](https://github.com/jinningwang)

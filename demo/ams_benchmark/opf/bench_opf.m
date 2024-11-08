@@ -1,6 +1,8 @@
 clc;
 clear;
 
+warning('off', 'all');
+
 cases = { 'case14.m'; 'case39.m'; 'case89pegase.m'; 'case118.m';
     'npcc.m'; 'wecc.m'; 'case300.m'; 'pglib_opf_case1354_pegase.m';
     'pglib_opf_case2869_pegase.m'; 'pglib_opf_case4020_goc.m';
@@ -9,10 +11,10 @@ cases = { 'case14.m'; 'case39.m'; 'case89pegase.m'; 'case118.m';
 function [time, obj] = mptest(case_file)
     % Load the case
     mpc = loadcase(case_file);
-    
-    % relax line flow limits, otherwise DCOPF faild
+
+    % relax line flow limits, otherwise DCOPF faild for the last 3 cases
     if size(mpc.bus, 1) > 4000
-        mpc.branch(:, 6) = 999;   % RATE_A
+        mpc.branch(:, 6) = 99999;
     end
 
     % config
@@ -21,11 +23,16 @@ function [time, obj] = mptest(case_file)
                 'OPF_IGNORE_ANG_LIM', false, ...
                 'OPF_FLOW_LIM', 0);
     t_matpower = tic;
-    mpc_sol = rundcopf(mpc, mpopt);
+    [mpc_sol, success] = rundcopf(mpc, mpopt);
     s_matpower = toc(t_matpower);
-    
-    time = s_matpower * 1000;  % scale to ms
-    obj = mpc_sol.f;
+
+    if success
+        time = s_matpower * 1000;  % scale to ms
+        obj = mpc_sol.f;
+    else
+        time = -1;
+        obj = -1;
+    end
 end
 
 cols_time = {'matpower'}; cols_obj = {'matpower'};
@@ -67,6 +74,8 @@ for n_case = 1:length(cases)
 end
 
 % Write the CSV output to a file
-fileID = fopen('../results/results_matpower.csv', 'w');
+fileID = fopen('./results/results_matpower_ttt.csv', 'w');
 fprintf(fileID, '%s', csv_output);
 fclose(fileID);
+
+warning('on', 'all');

@@ -1,6 +1,8 @@
 clc;
 clear;
 
+warning('off', 'all');
+
 cases = {
     'case5.m';
     'case14.m';
@@ -30,6 +32,7 @@ for n_iter = 1:n_iters
    
         % Load the case
         mpc = loadcase(case_file);
+
         % config
         mpopt = mpoption('VERBOSE', 0, 'OUT_ALL', 0, ...
                     'OPF_ALG_DC', 250, 'OPF_ALG', 560, ...
@@ -42,7 +45,12 @@ for n_iter = 1:n_iters
         for n_lf = 1:size(load_factor)
             lf = load_factor(n_lf);
             mpc.bus(:, 3) = lf * pd0;
-            mpc_sol = rundcopf(mpc, mpopt);
+            [mpc_sol, success] = rundcopf(mpc, mpopt);
+
+            if ~success
+                break;
+            end
+
             obj = obj + mpc_sol.f;
         end
         s_matpower = toc(t_matpower) * 1000;
@@ -72,6 +80,8 @@ for n_case = 1:length(cases)
 end
 
 % Write the CSV output to a file
-fileID = fopen('../results/results_matpower_repeat.csv', 'w');
+fileID = fopen('./results/results_matpower_repeat.csv', 'w');
 fprintf(fileID, '%s', csv_output);
 fclose(fileID);
+
+warning('on', 'all');

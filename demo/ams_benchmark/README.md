@@ -81,7 +81,8 @@ To recreate the conda environment used for the benchmark, follow these steps:
 <summary><strong>Tools version</strong></summary>
 
 - **Python**: 3.10.0
-- **ltbams**: 0.9.10.post18+g43b7dbe3
+- **ltbams**: 0.9.10.post153.dev0+gc73b7f8a
+- **andes**: 1.9.1.post100+g2b17faac
 - **cvxpy**: 1.5.3
 - **pandapower**: 2.14.11
 - **PYPOWER**: 5.1.17

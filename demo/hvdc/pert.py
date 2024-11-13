@@ -45,11 +45,11 @@ def pert(t, system):
         # --- pseudo calculation ---
         pin = 0.1
         qin = 0.05
-        vout = 0.1
+        pout = 0.1
         vf = 1.0
 
         # --- set the values ---
         system.PQ.set(src='Ppf', attr='v', idx='CONS', value=pin)
         system.PQ.set(src='Qpf', attr='v', idx='CONS', value=qin)
-        system.SynGen.set(src='tm0', attr='v', idx='CONR', value=vout)
+        system.SynGen.set(src='tm0', attr='v', idx='CONR', value=pout)
         system.SynGen.set(src='vf', attr='v', idx='CONR', value=vf)

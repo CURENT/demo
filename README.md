@@ -10,7 +10,6 @@ A collection of demonstrations related to CURENT LTB. The demonstrations aim to 
 - [ANDES: Comparasion of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 - [ANDES: Alter Load](./demo/alter_load.ipynb)
 - [ANDES: Output Select](./demo/output_select/output_select.ipynb)
-- [ANDES: TGOV1 and Its Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 - [ANDES: BusFreq Parameters](./demo/busfreq.ipynb)
 
 # Installation

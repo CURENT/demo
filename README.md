@@ -5,10 +5,12 @@ A collection of demonstrations related to CURENT LTB. The demonstrations aim to 
 # Demo list
 
 - [AMS Benchmark](./demo/ams_benchmark/plot/bench_plot.ipynb)
-- [Interface ANDES Using Pertubation File](./demo/interface_andes/interface_andes.ipynb)
-- [Frequency Regulation](./demo/freq_regulation/freq_regulation.ipynb)
-- [Comparasion of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
-- [Alter Load](./demo/alter_load.ipynb)
+- [ANDES: Interface Using Pertubation File](./demo/interface_andes/interface_andes.ipynb)
+- [ANDES-AMS: Frequency Regulation](./demo/freq_regulation/freq_regulation.ipynb)
+- [ANDES: Comparasion of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
+- [ANDES: Alter Load](./demo/alter_load.ipynb)
+- [ANDES: Output Select](./demo/output_select/output_select.ipynb)
+- [ANDES: TGOV1 and Its Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 
 # Installation
 

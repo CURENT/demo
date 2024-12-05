@@ -1,16 +1,17 @@
-# Demonstration for CURENT LTB
+# CURENT LTB Usage Examples
 
-A collection of demonstrations related to CURENT LTB. The demonstrations aim to showcase the capabilities and features of CURENT LTB.
+A collection of examples for using CURENT LTB.
 
-# Demo list
+# Examples
 
-- [AMS Benchmark](./demo/ams_benchmark/plot/bench_plot.ipynb)
 - [ANDES: Interface Using Pertubation File](./demo/interface_andes/interface_andes.ipynb)
-- [ANDES-AMS: Frequency Regulation](./demo/freq_regulation/freq_regulation.ipynb)
 - [ANDES: Comparasion of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 - [ANDES: Alter Load](./demo/alter_load.ipynb)
 - [ANDES: Output Select](./demo/output_select/output_select.ipynb)
 - [ANDES: BusFreq Parameters](./demo/busfreq.ipynb)
+- [AMS Benchmark](./demo/ams_benchmark/plot/bench_plot.ipynb)
+- [ANDES-AMS: Frequency Response](./demo/freq_regulation/freq_regulation.ipynb)
+- [ANDES-AMS: Detailed Secondary Frequency Reulation](https://ltb.readthedocs.io/projects/ams/en/stable/_examples/demo/demo_AGC.html)
 
 # Installation
 

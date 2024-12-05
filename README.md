@@ -10,7 +10,7 @@ A collection of examples for using CURENT LTB.
 - [ANDES: Output Select](./demo/output_select/output_select.ipynb)
 - [ANDES: BusFreq Parameters](./demo/busfreq.ipynb)
 - [AMS Benchmark](./demo/ams_benchmark/plot/bench_plot.ipynb)
-- [ANDES-AMS: Frequency Response](./demo/freq_regulation/freq_regulation.ipynb)
+- [ANDES-AMS: Frequency Response](./demo/freq_regulation/freq_response.ipynb)
 - [ANDES-AMS: Detailed Secondary Frequency Reulation](https://ltb.readthedocs.io/projects/ams/en/stable/_examples/demo/demo_AGC.html)
 
 # Installation

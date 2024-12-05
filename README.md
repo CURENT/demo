@@ -4,19 +4,11 @@ A collection of demonstrations related to CURENT LTB. The demonstrations aim to 
 
 # Demo list
 
-## Charging time constrained EV SFR Provision
-
-This demo demonstrates the effective provision of secondary frequency regulation to Electric Vehicles that are constrained by charging time. The goal is to show how this can be achieved in real-time scenarios and how it can benefit power systems.
-
-Researcher and Demonstrator: Jinning Wang
-
-## Virtual inertia scheduling from IBR
-
-This demo showcases the real-time economic dispatch of power systems that are penetrated by IBR, while also considering virtual inertia scheduling. The goal is to demonstrate how virtual inertia scheduling can be used to improve the performance of power systems.
-
-Researcher: Buxin She
-
-Demonstrator: Jinning Wang
+- [AMS Benchmark](./demo/ams_benchmark/plot/bench_plot.ipynb)
+- [Interface ANDES Using Pertubation File](./demo/interface_andes/interface_andes.ipynb)
+- [Frequency Regulation](./demo/freq_regulation/freq_regulation.ipynb)
+- [Comparasion of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
+- [Alter Load](./demo/alter_load.ipynb)
 
 # Installation
 

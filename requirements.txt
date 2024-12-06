@@ -1,9 +1,0 @@
-andes
-ams
-highspy
-piqp
-clarabel
-PySCIPOpt
-pyrlu
-SciencePlots
-asv

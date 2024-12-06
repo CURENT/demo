@@ -27,25 +27,6 @@ A collection of examples for using CURENT LTB.
 - [ANDES: TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
 - [ANDES: Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
 
-# Installation
-
-Clone the repository
-
-```
-git clone https://github.com/CURENT/demo.git
-```
-
-Conda environment
-```
-conda create --name demo python=3.9
-conda activate demo
-```
-
-install required packages
-```
-pip install -r requirements.txt
-```
-
 # License
 
 This repository is licensed under the [GPL v3 License](./LICENSE).

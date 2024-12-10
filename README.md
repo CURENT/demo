@@ -11,7 +11,7 @@ A collection of examples for using CURENT LTB.
 
 - [ANDES: Interface Using Pertubation File](./demo/interface_andes/interface_andes.ipynb)
 - [ANDES-AMS: Detailed Secondary Frequency Reulation](https://ltb.readthedocs.io/projects/ams/en/stable/_examples/demo/demo_AGC.html)
-- [ANDES-AMS: Frequency Response](./demo/freq_regulation/freq_response.ipynb)
+- [ANDES-AMS: Frequency Response](./demo/freq_response/freq_response.ipynb)
 
 ## Benchmark
 

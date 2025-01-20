@@ -23,7 +23,7 @@ A collection of examples for using CURENT LTB.
 - [ANDES: Comparasion of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 - [ANDES: BusFreq Parameters](./demo/misc/busfreq.ipynb)
 - [ANDES: Alter Load](./demo/misc/alter_load.ipynb)
-- [ANDES: Output Select](./demo/misc/output_select/output_select.ipynb)
+- [ANDES: Output Select](./demo/misc/output_select.ipynb)
 - [ANDES: TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
 - [ANDES: Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
 

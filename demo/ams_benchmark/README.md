@@ -2,6 +2,8 @@
 
 This folder contains benchmarking tools and scripts for various power system optimization tasks using different software environments.
 
+Last benchmarked on: 2025-02-02
+
 <details>
 <summary><strong>Table of Contents</strong></summary>
 
@@ -63,7 +65,7 @@ To recreate the conda environment used for the benchmark, follow these steps:
 1. **Activate the environment**: Once the environment is created, activate it with:
 
     ```bash
-    conda activate ams
+    conda activate amsre
     ```
 1. **Verify the installation**: Ensure all packages are installed correctly by listing the installed packages:
 
@@ -80,18 +82,15 @@ To recreate the conda environment used for the benchmark, follow these steps:
 <details>
 <summary><strong>Tools version</strong></summary>
 
-- **Python**: 3.10.0
-- **ltbams**: 0.9.10.post153.dev0+gc73b7f8a
-- **andes**: 1.9.1.post100+g2b17faac
-- **cvxpy**: 1.5.3
-- **pandapower**: 2.14.11
+- **Python**: 3.12.0
+- **ltbams**: 1.0.3a1
+- **andes**: 1.9.3 
+- **cvxpy**: 1.6.0  
+- **pandapower**: 2.14.7 
 - **PYPOWER**: 5.1.17
-- **gurobipy**: 11.0.3
-- **mosek**: 10.2.6
-- **ecos**: 2.0.14
-- **scs**: 3.2.7
+- **gurobipy**: 12.0.1 
+- **mosek**: 11.0.5
 - **piqp**: 0.4.2
-- **osqp**: 0.6.7.post0
 - **numba**: 0.60.0
 - **MATLAB**: Version 24.2.0.2740171 (R2024b) Update 1
 - **MATPOWER**: Version 7.1 (08-Oct-2020)

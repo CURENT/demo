@@ -2,8 +2,9 @@
 
 A collection of examples for using CURENT LTB.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/CURENT/demo/blob/master/LICENSE)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![GitHub last commit (master)](https://img.shields.io/github/last-commit/CURENT/demo/master?label=last%20commit%20to%20master)](https://github.com/CURENT/demo/commits/master/)
-[![HitCount](https://hits.dwyl.com/CURENT/demo.svg)](https://hits.dwyl.com/CURENT/demo)
 
 # Examples
 

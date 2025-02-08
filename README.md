@@ -21,6 +21,7 @@ A collection of examples for using CURENT LTB.
 
 ## Miscellaneous
 
+- [ANDES: Equivalent Inertia](./demo/equivalent_inertia/equivalent_inertia.ipynb)
 - [ANDES: Comparasion of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 - [ANDES: BusFreq Parameters](./demo/misc/busfreq.ipynb)
 - [ANDES: Alter Load](./demo/misc/alter_load.ipynb)

@@ -21,6 +21,7 @@ A collection of examples for using CURENT LTB.
 
 ## Miscellaneous
 
+- [ANDES: Damped Oscillation](./demo/oscillation/oscillation.ipynb)
 - [ANDES: Equivalent Inertia](./demo/equivalent_inertia/equivalent_inertia.ipynb)
 - [ANDES: Voltage Sag](./demo/misc/voltage_sag.ipynb)
 - [ANDES: Comparison of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)

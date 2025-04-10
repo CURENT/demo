@@ -31,6 +31,20 @@ A collection of examples for using CURENT LTB.
 - [ANDES: TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
 - [ANDES: Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
 
+# Installation
+
+A conda environment is provided for easy installation. To create the environment named "ltb", run:
+
+```bash
+conda env create -f environment.yml -n ltb
+```
+
+To activate the environment, run:
+
+```bash
+conda activate ltb
+```
+
 # License
 
 This repository is licensed under the [MIT License](./LICENSE).

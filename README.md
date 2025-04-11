@@ -8,6 +8,10 @@ A collection of examples for using CURENT LTB.
 
 # Examples
 
+## Simulations
+
+- [Texas 7k Bus Case](./demo/texas7k/)
+
 ## Advanced Usage
 
 - [ANDES: Interface Using Pertubation File](./demo/interface_andes/interface_andes.ipynb)

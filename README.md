@@ -8,12 +8,9 @@ A collection of examples for using CURENT LTB.
 
 # Examples
 
-## Simulations
-
-- [Texas 7k Bus Case](./demo/texas7k/): A demo to show running a series of DCOPF using an external syntheric case.
-
 ## Advanced Usage
 
+- [ANEDS: Stochastic Disturbance](./demo/andes_stochastic/andes_stochastic.ipynb)
 - [ANDES: Interface Using Pertubation File](./demo/interface_andes/interface_andes.ipynb)
 - [ANDES-AMS: Detailed Secondary Frequency Reulation](https://ltb.readthedocs.io/projects/ams/en/stable/_examples/demo/demo_AGC.html)
 - [ANDES-AMS: Frequency Response](./demo/freq_response/freq_response.ipynb)
@@ -23,8 +20,9 @@ A collection of examples for using CURENT LTB.
 - [AMS Benchmark](./demo/ams_benchmark/plot/bench_plot.ipynb)
 - [Power Flow Benchmark](demo/pflow_benchmark/bench_pflow.ipynb)
 
-## Miscellaneous
+## Simulations
 
+- [Texas 7k Bus Case](./demo/texas7k/): A demo to show running a series of DCOPF using an external syntheric case.
 - [ANDES: Damped Oscillation](./demo/oscillation/oscillation.ipynb)
 - [ANDES: Equivalent Inertia](./demo/equivalent_inertia/equivalent_inertia.ipynb)
 - [ANDES: Voltage Sag](./demo/misc/voltage_sag.ipynb)

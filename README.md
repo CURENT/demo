@@ -10,7 +10,7 @@ A collection of examples for using CURENT LTB.
 
 ## Simulations
 
-- [Texas 7k Bus Case](./demo/texas7k/)
+- [Texas 7k Bus Case](./demo/texas7k/): A demo to show running a series of DCOPF using an external syntheric case.
 
 ## Advanced Usage
 

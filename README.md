@@ -27,11 +27,11 @@ A collection of examples for using CURENT LTB.
 - [ANDES: Equivalent Inertia](./demo/equivalent_inertia/equivalent_inertia.ipynb)
 - [ANDES: Voltage Sag](./demo/misc/voltage_sag.ipynb)
 - [ANDES: Comparison of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
-- [ANDES: BusFreq Parameters](./demo/misc/busfreq.ipynb)
+- [ANDES: Imapcts of BusFreq Parameters](./demo/misc/busfreq.ipynb)
 - [ANDES: Alter Load](./demo/misc/alter_load.ipynb)
-- [ANDES: Output Select](./demo/misc/output_select.ipynb)
-- [ANDES: TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
-- [ANDES: Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
+- [ANDES: Use Output Select to Save Memory](./demo/misc/output_select.ipynb)
+- [ANDES: Fix TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
+- [ANDES: Inspect Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
 
 # Installation
 

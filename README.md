@@ -15,11 +15,6 @@ A collection of examples for using CURENT LTB.
 - [ANDES-AMS: Detailed Secondary Frequency Reulation](https://ltb.readthedocs.io/projects/ams/en/stable/_examples/demo/demo_AGC.html)
 - [ANDES-AMS: Frequency Response](./demo/freq_response/freq_response.ipynb): Do a transient stability simulation at a given operation point.
 
-## Benchmark
-
-- [AMS Benchmark](./demo/ams_benchmark/plot/bench_plot.ipynb)
-- [Power Flow Benchmark](demo/pflow_benchmark/bench_pflow.ipynb)
-
 ## Simulations
 
 - [AMS: Texas 7k Bus Case](./demo/texas7k/): Run a series of DCOPF using an external syntheric case.
@@ -30,6 +25,17 @@ A collection of examples for using CURENT LTB.
 - [ANDES: Imapcts of BusFreq Parameters](./demo/misc/busfreq.ipynb)
 - [ANDES: Alter Load](./demo/misc/alter_load.ipynb)
 - [ANDES: Use Output Select to Save Memory](./demo/misc/output_select.ipynb)
+- [ANDES: Fix TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
+- [ANDES: Inspect Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
+
+## Benchmark
+
+- [AMS Benchmark](./demo/ams_benchmark/plot/bench_plot.ipynb)
+- [Power Flow Benchmark](demo/pflow_benchmark/bench_pflow.ipynb)
+
+## Debug
+
+- [ANDES: Comparison of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 - [ANDES: Fix TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
 - [ANDES: Inspect Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
 

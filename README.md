@@ -35,6 +35,7 @@ A collection of examples for using CURENT LTB.
 
 ## Debug
 
+- [ANDES: WTDTA1 Debug](./demo/WTDTA1.ipynb)
 - [ANDES: Comparison of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 - [ANDES: Fix TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
 - [ANDES: Inspect Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)

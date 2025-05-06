@@ -18,6 +18,7 @@ A collection of examples for using CURENT LTB.
 ## Simulations
 
 - [AMS: Texas 7k Bus Case](./demo/texas7k/): Run a series of DCOPF using an external syntheric case.
+- [ANDES: Forced Oscillation](./demo/forced_oscillation/forced_oscillation.ipynb): Use ANDES to simulate a forced oscillation in Kundur 4-machine 2-area system.
 - [ANDES: TurbineGov's Response](./demo/TurbineGov_response/TurbineGov_reponse.ipynb)
 - [ANDES: A Debug of TurbineGov's Response](./demo/TurbineGov_response/debug.ipynb)
 - [ANDES: Damped Oscillation](./demo/oscillation/oscillation.ipynb)

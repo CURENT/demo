@@ -38,6 +38,15 @@ def pert(t, system):
     system : andes.system.System
         System object supplied by the simulator.
     """
+    vout = system.ESD1.get(src='v', attr='v', idx=system.esd1)
+    Iout = system.ESD1.get(src='Ipcmd_y', attr='v', idx=system.esd1)
+    system.Pout[:] = vout * Iout
+    # record output data
+    system.out[system.i, :] = np.concatenate(
+        (system.t0, system.df, system.f, system.rocof, system.vpow,
+         system.ue, system.Pin, system.Pout), axis=0)
+    system.i += 1
+
     # NOTE: in ANDES, PQ.p0 is a parameter and its value can be altered as necessary
     #  When they are set as constant load, their values remain unchanged
     # --- random load change ---
@@ -46,29 +55,22 @@ def pert(t, system):
     system.PQ.set(src='Ppf', attr='v', idx='PQ_1',
                   value=system.p0 + system.dp)
 
-    # --- FFR ---
-    # different PMU alg. will give us "df" and "enable" signals
-    # df -> system.df, enable -> system.ue
-    # 1) RoCoF calc.
-
-    # 2) Freq.
-
-    # 3) FFR control
+    # --- signal measurement ---
     system.dt = t - system.t0[0]
+    system.df[:], system.f[:], system.rocof[:] = measure(system, method=system.m)
 
-    # --- THIS PART SHOULD BE SKIPPED IF ACTUAL PMU ALG. IS USED ---
-    system.df[:] = (system.BusFreq.get(
-        src='f', idx=system.busf_idx) - 1) * system.fn
+    # --- FFR control ---
+    # TODO: Improve FFR trigger
     if system.df < -system.fdb or system.df > system.fdb:
-        system.ue[:] = True
+        system.ue[:] = 1
     else:
-        system.df[:] = 0
+        system.ue[:] = 0
 
-    system.Integral[:] += system.df * system.dt
-    system.PIy[:] = system.ue * \
-        (system.Kp * system.df + system.Ki * system.Integral)
+    system.Integral[:] += system.ue * system.df / system.fn * system.dt
+    system.Pin[:] = system.ue * \
+        (system.Kp * system.df / system.fn + system.Ki * system.Integral)
 
-    system.ESD1.set(src='Pext0', attr='v', idx='ESD1_1', value=system.PIy)
+    system.ESD1.set(src='Pext0', attr='v', idx='ESD1_1', value=system.Pin)
 
     # --- update time stamp ---
     system.t0[:] = t
@@ -81,3 +83,55 @@ def pert(t, system):
 
     # Synthetic Point on Wave (PoW) value
     system.vpow[:] = v_syn * np.sin(system.fb * system.omega * t + system.a0)
+
+def measure(system, method=0):
+    """
+    Measure frequency deviation, frequency, and rate of change of frequency.
+    When method is not supported, m0 is used.
+
+    Parameters
+    ----------
+    system : andes.system.System
+        System object supplied by the simulator.
+    method : int, optional
+        Method to use.
+        0 : Baseline, dynamic models in simulation.
+        1 : TBD.
+    
+    Returns
+    -------
+    df : float
+        Frequency deviation, Hz.
+    f : float
+        Frequency, Hz.
+    rocof : float
+        Rate of change of frequency, Hz/s.
+    """
+    if method == 0:
+        return m0(system)
+    else:
+        return m0(system)
+
+
+def m0(system):
+    """
+    Measure frequency deviation, frequency, and rate of change of frequency.
+
+    Parameters
+    ----------
+    system : andes.system.System
+        System object supplied by the simulator.
+    
+    Returns
+    -------
+    df : float
+        Frequency deviation, Hz.
+    f : float
+        Frequency, Hz.
+    rocof : float
+        Rate of change of frequency, Hz/s.
+    """
+    f = system.fn * system.BusFreq.get(src='f', idx=system.busf_idx)
+    df = f - system.fn
+    rocof = system.df * system.fn
+    return df, f, rocof

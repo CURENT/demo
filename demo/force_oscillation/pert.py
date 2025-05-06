@@ -39,14 +39,13 @@ def pert(t, system):
         System object supplied by the simulator.
     """
 
-    t_start = 1
-    t_end = 3
-
-    if t > t_start and t < t_end:
-        # Let's add a 15 Hz voltage disturbance to the voltage reference of the
-        # exciter.
-        vd = 0.1 * np.sin(2 * np.pi * 1.2 * t + 0.5 * np.pi)
-        system.EXDC2.set(src='vref0', attr='v', idx=2, value=system.vref0+vd)
-    elif t >= t_end:
+    if t > system.t1 and t < system.t2:
+        v = system.vd * np.sin(2 * np.pi * system.fd * t)
+        system.EXDC2.set(src='vref0', attr='v',
+                         idx=system.exc,
+                         value=system.vref0+v)
+    elif t >= system.t2:
         # Let's remove the disturbance.
-        system.EXDC2.set(src='vref0', attr='v', idx=2, value=system.vref0)
+        system.EXDC2.set(src='vref0', attr='v',
+                         idx=system.exc,
+                         value=system.vref0)

@@ -57,5 +57,4 @@ conda activate ltb
 ```
 
 # License
-
-This repository is licensed under the [MIT License](./LICENSE).
+This repository is licensed under the [MIT License](./LICENSE), unless specified otherwise in subdirectories.

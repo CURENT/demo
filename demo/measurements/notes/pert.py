@@ -107,6 +107,16 @@ def measure(system, method=0):
     rocof : float
         Rate of change of frequency, Hz/s.
     """
+    # --- update buffer ---
+    system.buf[system.nbuf] = system.omega * system.config.freq
+    system.nbuf += 1
+
+    if system.nbuf >= system.buf.shape[0]:
+        # when the buffer is full, use np.roll for efficient shifting
+        system.buf = np.roll(system.buf, -1)
+        system.buf[-1] = system.omega * system.config.freq
+        system.nbuf = system.buf.shape[0] - 1
+
     if method == 0:
         return m0(system)
     else:

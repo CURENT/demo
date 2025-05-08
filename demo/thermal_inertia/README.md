@@ -21,3 +21,7 @@ References:
 1. A.B. Birchfield, T. Xu, K.M. Gegner, K.S. Shetye, and T.J. Overbye, “Grid Structural
    Characteristics as Validation Criteria for Synthetic Networks,” IEEE Transactions on
    Power Systems, vol. 32, no. 4, pp. 3258-3265, July 2017.
+
+## LICENSE
+
+The code within this subdirectory (`./demo/thermal_inertia`) is proprietary and all rights are reserved by Jinning Wang.

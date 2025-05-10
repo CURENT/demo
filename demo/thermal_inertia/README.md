@@ -2,7 +2,7 @@
 
 ## Install development version of ANDES
 
-Before the development being merged into ANDES master branch, please install it from my ``ieeg1`` branch:
+Before the development being merged into ANDES master branch, please install it from my ``ieeeg1`` branch:
 
 ```bash
 pip install git+https://github.com/jinningwang/andes.git@ieeeg1

@@ -1,12 +1,4 @@
-# Thermal Inertia Study
-
-## Install development version of ANDES
-
-Before the development being merged into ANDES master branch, please install it from my ``ieeeg1`` branch:
-
-```bash
-pip install git+https://github.com/jinningwang/andes.git@ieeeg1
-```
+# Frequency Control Deadband
 
 ## Test Cases
 

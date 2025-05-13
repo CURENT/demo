@@ -42,6 +42,7 @@ A collection of examples for using CURENT LTB.
 - [ANDES: Comparison of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 - [ANDES: Fix TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
 - [ANDES: Inspect Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
+- [ANDES: Ineffectiveness of ``REGCA1.u``](./demo/misc/REGCA1_u.ipynb)
 
 # Installation
 

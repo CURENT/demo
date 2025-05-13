@@ -17,10 +17,10 @@ A collection of examples for using CURENT LTB.
 
 ## Simulations
 
-- [AMS: Texas 7k Bus Case](./demo/texas7k/): Run a series of DCOPF using an external syntheric case.
+- [AMS: Texas 7k Bus Case](./demo/texas7k/): Run a series of DCOPF using an external synthetic case.
 - [ANDES: Forced Oscillation](./demo/forced_oscillation/forced_oscillation.ipynb): Use ANDES to simulate a forced oscillation in Kundur 4-machine 2-area system.
 - [ANDES: TurbineGov's Response](./demo/TurbineGov_response/TurbineGov_reponse.ipynb)
-- [ANDES: A Debug of TurbineGov's Response](./demo/TurbineGov_response/debug.ipynb)
+- [ANDES: Debug of TurbineGov's Response](./demo/TurbineGov_response/debug.ipynb)
 - [ANDES: Damped Oscillation](./demo/oscillation/oscillation.ipynb)
 - [ANDES: Equivalent Inertia](./demo/equivalent_inertia/equivalent_inertia.ipynb)
 - [ANDES: Voltage Sag](./demo/misc/voltage_sag.ipynb)
@@ -28,7 +28,6 @@ A collection of examples for using CURENT LTB.
 - [ANDES: Imapcts of BusFreq Parameters](./demo/misc/busfreq.ipynb)
 - [ANDES: Alter Load](./demo/misc/alter_load.ipynb)
 - [ANDES: Use Output Select to Save Memory](./demo/misc/output_select.ipynb)
-- [ANDES: Fix TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
 - [ANDES: Inspect Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
 
 ## Benchmark
@@ -41,7 +40,6 @@ A collection of examples for using CURENT LTB.
 - [ANDES: WTDTA1 Debug](./demo/misc/WTDTA1.ipynb)
 - [ANDES: Comparison of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 - [ANDES: Fix TDS Initialization Error](./demo/misc/andes_tds_init.ipynb)
-- [ANDES: Inspect Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
 - [ANDES: Ineffectiveness of ``REGCA1.u``](./demo/misc/REGCA1_u.ipynb)
 
 # Installation

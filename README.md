@@ -29,6 +29,7 @@ A collection of examples for using CURENT LTB.
 - [ANDES: Alter Load](./demo/misc/alter_load.ipynb)
 - [ANDES: Use Output Select to Save Memory](./demo/misc/output_select.ipynb)
 - [ANDES: Inspect Bus Injection Power](./demo/misc/andes_bus_injection.ipynb)
+- [ANDES: Bus Admittance Matrix](./demo/misc/bus_admittance.ipynb)
 
 ## Benchmark
 

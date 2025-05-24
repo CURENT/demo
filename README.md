@@ -1,4 +1,6 @@
-# CURENT LTB Usage Examples
+# LTB Demo
+
+<img src="https://github.com/CURENT/andes/raw/master/docs/source/images/sponsors/CURENT_Logo_NameOnTrans.png" alt="CURENT ERC Logo" width="300" height="auto">
 
 A collection of examples for using CURENT LTB.
 

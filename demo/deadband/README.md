@@ -18,6 +18,9 @@ References:
 
 Data files are synthsized by Zelei Han: ``DataLoad.xlsx``, ``DataPV.xlsx``, and ``DataWind.xlsx``.
 
+The individual datasets are merged into a single file, ``Curve.csv``, which contains load, PV, and
+wind data combined at a one-minute resolution.
+
 ## LICENSE
 
 The code within this subdirectory (`./demo/deadband`) is proprietary and all rights are reserved by Jinning Wang.

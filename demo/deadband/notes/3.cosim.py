@@ -1,75 +1,107 @@
+"""
+Script to run co-simulation
+"""
+
+import logging
+
+from dataclasses import dataclass
+
 import pandas as pd
 
 import andes
 import ams
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 andes.config_logger(stream_level=30)
 ams.config_logger(stream_level=30)
 
 # --- file loading ---
-# 1. syntheric curve
 curve = pd.read_csv('./../cases/Curve.csv')
+sp = ams.load('./../cases/IL200_rted.xlsx',
+              setup=True, no_output=True,
+              default_config=True)
+sa = sp.to_andes(addfile='./../cases/IL200_dyn_db.xlsx',
+                 setup=True, no_output=True,
+                 default_config=True,)
 
-# 2. OPF case
-sp1 = ams.load('./../cases/IL200_rted_db.xlsx',
-               setup=True, no_output=True,
-               default_config=True)
+# set Wind and Solar to be uncontrollable, so their output
+# power in RTED is fixed
+stg_wind, stg_pv = sp.StaticGen.find_idx(keys='genfuel',
+                                         values=['wind', 'solar'],
+                                         allow_all=True)
+sp.StaticGen.set(src='ctrl', attr='v', idx=stg_wind, value=0)
+sp.StaticGen.set(src='ctrl', attr='v', idx=stg_pv, value=0)
 
-# set Wind and Solar to be uncontrollable
-stg_wind, stg_pv = sp1.StaticGen.find_idx(keys='genfuel',
-                                          values=['wind', 'solar'], allow_all=True)
-sp1.StaticGen.set(src='ctrl', attr='v', idx=stg_wind, value=0.0)
-sp1.StaticGen.set(src='ctrl', attr='v', idx=stg_pv, value=0.0)
+# relax StaticGen.pmin
+stg = sp.StaticGen.get_all_idxes()
+sp.StaticGen.set(src='pmin', attr='v', idx=stg, value=0)
 
-# 3. dynamic case
-s1 = sp1.to_andes(addfile='./../cases/IL200_dyn_db.xlsx',
-                  setup=False,
-                  no_output=True,
-                  default_config=True,)
+# --- time constants ---
+@dataclass
+"""
+Represents the Automatic Generation Control (AGC) controller for a simulation.
 
-# bias is manually measured, in unit MW/0.1Hz
-slack_bus = s1.Slack.bus.v
-s1.add('ACEc', param_dict=dict(bus=slack_bus, bias=-45))
+Attributes:
+   total_time (int): Total simulation time in seconds.
+   RTED_interval (int): Real-Time Economic Dispatch (RTED) interval in seconds.
+"""
+class AGC:
+   total_time: int = 600  # total simulation time in seconds
+   RTED_interval: int = 300
+   AGC_interval: int = 4  # AGC interval in seconds
+   id_rted: int = -1  # RTED interval counter
+   id_agc: int = -1  # AGC interval counter
+   kp: float = 0.1  # Proportional gain for AGC
+   ki: float = 0.05  # Integral gain for AGC
+   ACE_integral: float = 0.0  # Integral of Area Control Error (ACE)
+   ACE_raw: float = 0.0  # Raw Area Control Error (ACE)
 
-s1.setup()
-# scale up Turbine Governor VMAX
-vmax0 = s1.TGOV1NDB.get(src='VMAX', attr='v', idx=s1.TGOV1NDB.idx.v)
-s1.TGOV1NDB.set(src='VMAX', attr='v', idx=s1.TGOV1NDB.idx.v,
-                value=10 * vmax0)
+AGC = AGC()
 
-stg = sp1.StaticGen.get_all_idxes()
-# sacle down StaticGen.pmin
-sp1.StaticGen.set(src='pmin', attr='v', idx=stg, value=0)
+# --- simulation setup ---
+# 1) ANDES
+# use constant power model for PQ
+sa.PQ.config.p2p = 1
+sa.PQ.config.q2q = 1
+sa.PQ.config.p2z = 0
+sa.PQ.config.q2z = 0
+sa.PQ.pq2z = 0
+
+sa.TDS.config.no_tqdm = True  # turn off ANDES progress bar
+sa.TDS.config.criteria = 0  # turn off ANDES criteria check
+sa.TDS.config.save_every = 0  # turn off ANDES save every time step
 
 
-# set load levels
-p0 = sp1.PQ.get(src='p0', attr='v', idx=sp1.PQ.idx.v).copy()
-sp1.PQ.set(src='p0', attr='v', idx=sp1.PQ.idx.v,
-           value=curve['Load'].values[0:5].mean() * p0,
-        #    value=0.85 * p0,
-           )
+# # set load levels
+# p0 = sp.PQ.get(src='p0', attr='v', idx=sp.PQ.idx.v).copy()
+# sp.PQ.set(src='p0', attr='v', idx=sp.PQ.idx.v,
+#           value=curve['Load'].values[0:5].mean() * p0,
+#           #    value=0.85 * p0,
+#           )
 
-# set wind power
-p0_wind = sp1.StaticGen.get(src='p0', attr='v', idx=stg_wind).copy()
-sp1.StaticGen.set(src='p0', attr='v', idx=stg_wind,
-                  value=curve['Wind'].values[0:5].mean() * p0_wind)
+# # set wind power
+# p0_wind = sp.StaticGen.get(src='p0', attr='v', idx=stg_wind).copy()
+# sp.StaticGen.set(src='p0', attr='v', idx=stg_wind,
+#                  value=curve['Wind'].values[0:5].mean() * p0_wind)
 
-# set solar power
-p0_pv = sp1.StaticGen.get(src='p0', attr='v', idx=stg_pv).copy()
-sp1.StaticGen.set(src='p0', attr='v', idx=stg_pv,
-                  value=curve['PV'].values[0:5].mean() * p0_pv)
+# # set solar power
+# p0_pv = sp.StaticGen.get(src='p0', attr='v', idx=stg_pv).copy()
+# sp.StaticGen.set(src='p0', attr='v', idx=stg_pv,
+#                  value=curve['PV'].values[0:5].mean() * p0_pv)
 
-# pg0 <- p0, relax RTED ramping constraints
-sp1.StaticGen.set(src='pg0', attr='v', idx=stg,
-                  value=sp1.StaticGen.get(src='p0', attr='v', idx=stg))
+# # pg0 <- p0, relax RTED ramping constraints
+# sp.StaticGen.set(src='pg0', attr='v', idx=stg,
+#                  value=sp.StaticGen.get(src='p0', attr='v', idx=stg))
 
-sp1.RTED.run(solver='CLARABEL')
-sp1.RTED.dc2ac()
+# sp.RTED.run(solver='CLARABEL')
+# sp.RTED.dc2ac()
 
-sp1.dyn.send(adsys=s1, routine='RTED')
+# sp.dyn.send(adsys=sa, routine='RTED')
 
-s1.PFlow.run()
+# sa.PFlow.run()
 
-_ = s1.TDS.init()
+# _ = sa.TDS.init()
 
-s1.TDS.run()
+# sa.TDS.run()

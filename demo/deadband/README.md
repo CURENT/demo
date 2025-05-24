@@ -2,7 +2,7 @@
 
 ## Test Cases
 
-``IL200_opf_db.xlsx`` and ``IL200_dyn_db.xlsx`` are revised from below reference.
+``IL200_opf.xlsx`` and ``IL200_dyn.xlsx`` are revised from reference [1].
 
 Illinois 200-Bus System: ACTIVSg200
 

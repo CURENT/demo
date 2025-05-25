@@ -15,7 +15,8 @@ References:
    Power Systems, vol. 32, no. 4, pp. 3258-3265, July 2017.
 
 Below list some changes to the case files:
-1. ``IL200_rted.xlsx``: based on ``IL200_opf.xlsx``, add models SFRCost and SFR for AGC study
+1. ``IL200_rted.xlsx``: based on ``IL200_opf.xlsx``, add models SFRCost and SFR for AGC study;
+   set Energy Storage p0 and q0 to 0
 1. ``IL200_dyn_new.xlsx``: based on ``IL200_dyn.xlsx``, replace model TGOV1 with TGOV1NDB; add model ACEc
 1. ``IL200_dyn_db.xlsx``: based on ``IL200_dyn_new.xlsx``, replace some GENROU with Wind, PV,
    and Energy Storage

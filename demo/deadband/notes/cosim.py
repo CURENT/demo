@@ -3,6 +3,7 @@ Script to run a cosimulation.
 """
 
 import os
+import warnings
 
 from dataclasses import dataclass
 
@@ -12,14 +13,20 @@ import pandas as pd
 import andes
 import ams
 
+# Seed the random number generator
+np.random.seed(2025)
+
+warnings.filterwarnings("ignore", category=np.ComplexWarning)
+
 
 class AGC:
     def __init__(self,
                  sp: ams.system.System,
                  sa: andes.system.System,
                  curve: pd.DataFrame,
+                 hour: int = 0,
                  addfile: str = None,
-                 res_csv: str = 'cosim_results.csv'):
+                 res_csv: str = 'cosim_results_h0.csv'):
         self.sp: ams.system.System = sp  # AMS system instance
         self.sa: andes.system.System = sa  # ANDES system instance
         self.addfile: str = addfile
@@ -70,11 +77,14 @@ class AGC:
         self.sapg = sa.PQ.p0.v.copy()  # Copy of current ANDES active load
         self.saqg = sa.PQ.q0.v.copy()  # Copy of current ANDES reactive load
 
-        self.total_hour: int = 2  # total hours to simulate, 24 for a full day
+        # NOTE: we are running cosim hour by hour, so do not
+        # change the total_hour
+        self.total_hour: int = 1  # total hours to simulate, 24 for a full day
         self.total_sec: int = 3600  # total seconds in one hour to simulate, 3600 for a full hour
         self.RTED_interval: int = 300
+        self.sp.RTED.config.update(t=self.RTED_interval/60) # update RTED interval
         self.AGC_interval: int = 4  # AGC interval in seconds
-        self.id_hour: int = 0  # Hour counter
+        self.id_hour: int = hour  # Hour counter
         self.id_rted: int = 0  # RTED interval counter
         self.id_agc: int = 0  # AGC interval counter
         self.id_sec: int = 0  # second counter
@@ -177,9 +187,17 @@ class AGC:
         Run the main loop for a single second.
         """
         if self.id_sec > 0:
+         kbase = self.curve['Load'].iloc[self.id_sec // 60]
+         dp = self.out.loc[self.id_sec, 'dp']  # get the dp value for this second
+         kload = kbase + dp
+         self.sa.PQ.set(src='Ppf', attr='v', idx=self.sa.PQ.idx.v,
+                        value=kload * self.sap0)
+         self.sa.PQ.set(src='Qpf', attr='v', idx=self.sa.PQ.idx.v,
+                        value=kload * self.saq0)
          self.sa.TDS.config.tf = self.id_sec % 3600  # set the time in seconds
          self.sa.TDS.run()  # run the time domain simulation
          self.record_output()  # Record output at the start of the second
+         self.out.loc[self.id_sec, 'kload'] = kload  # store the kload value
 
         if self.sa.exit_code != 0:
            raise RuntimeError(
@@ -202,13 +220,16 @@ class AGC:
       # --- Output ---
       # NOTE: since ANDES save_every is set to 0, we need to collect
       # the output manually. Add extra columns for any other outputs
-      cols = ['time', 'freq']
+      cols = ['time', 'freq', 'kload']
       self.out = pd.DataFrame(
          -1.0,
          index=np.arange(self.total_hour * self.total_sec),
          columns=cols,
          dtype=float
       )
+
+      self.out['dp'] = np.random.normal(loc=0, scale=0.002,
+                                        size=self.total_hour * self.total_sec)
 
       for SEC in range(self.total_hour * self.total_sec):
          if self.id_sec % 3600 == 0:
@@ -222,6 +243,10 @@ class AGC:
             self.id_rted += 1
             self.id_agc = 0
             self.loop_RTED()
+            mva = self.sp.config.mva
+            print(f'Load: {mva * self.sp.PQ.p0.v.sum():.2f} MW,'
+                  f' Gen.: {mva * self.sp.RTED.pg.v.sum():.2f} MW'
+                  f' Cost: {self.sp.RTED.obj.v:.2f} $')
 
          if self.id_sec % self.AGC_interval == 0:
             self.loop_AGC()
@@ -234,7 +259,7 @@ class AGC:
 
          self.id_sec += 1
 
-         if self.id_sec > 400:
+         if self.id_sec > 7200:
             print('Simulation stopped for testing.')
             break
 

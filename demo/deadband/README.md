@@ -28,6 +28,13 @@ Data files are synthsized by Zelei Han: ``DataLoad.xlsx``, ``DataPV.xlsx``, and 
 The individual datasets are merged into a single file, ``Curve.csv``, which contains load, PV, and
 wind data combined at a one-minute resolution, as scaled factor.
 
+## Assumptions
+
+In this study, following assumptions are made:
+1. Each bus hosts at most one static generator and one dynamic generator
+1. Regulation capacity is not optimized in the RTED process
+1. Area Control Error (ACE) is assumed to be fully regulated
+
 ## LICENSE
 
 The code within this subdirectory (`./demo/deadband`) is proprietary and all rights are reserved by Jinning Wang.

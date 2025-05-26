@@ -26,7 +26,9 @@ Below list some changes to the case files:
 Data files are synthsized by Zelei Han: ``DataLoad.xlsx``, ``DataPV.xlsx``, and ``DataWind.xlsx``.
 
 The individual datasets are merged into a single file, ``Curve.csv``, which contains load, PV, and
-wind data combined at a one-minute resolution, as scaled factor.
+wind data combined at a one-minute resolution, for one day, as scaled factor.
+
+Then, the data is interpolated to a one-second resolution, plus normal distribution noise, for one day, and saved as ``CurveInterp.csv``.
 
 ## Assumptions
 

@@ -28,6 +28,8 @@ class CoSimulation:
                  sp: ams.system.System,
                  sa: andes.system.System,
                  curve: pd.DataFrame,
+                 Dispatch_interval: int = 300,
+                 AGC_interval: int = 4,
                  addfile: str = None,
                  res_csv: str = 'cosim_results.csv'):
         self.sp: ams.system.System = sp  # AMS system instance
@@ -75,8 +77,8 @@ class CoSimulation:
         self.sap0 = sa.PQ.p0.v.copy()  # Copy of initial ANDES active load
         self.saq0 = sa.PQ.q0.v.copy()  # Copy of initial ANDES reactive load
 
-        self.Dispatch_interval: int = 300
-        self.AGC_interval: int = 4  # AGC interval in seconds
+        self.Dispatch_interval: int = Dispatch_interval
+        self.AGC_interval: int = AGC_interval  # AGC interval in seconds
         self.t: int = 0  # current time
         self.kp: float = 0.2  # Proportional gain for AGC
         self.ki: float = 0.05  # Integral gain for AGC
@@ -192,7 +194,7 @@ class CoSimulation:
                            attr='v', value=list(adg_to_set.values()))
 
         # --- TDS Interval ---
-        if self.t > 0: # when t>0, run TDS
+        if self.t > 0:  # when t>0, run TDS
             # 1) Update loads
             kload = self.curve['Load'].iloc[self.t]
             self.sa.PQ.set(src='Ppf', attr='v', idx=self.sa.PQ.idx.v,
@@ -209,7 +211,7 @@ class CoSimulation:
 
             self.sa.TDS.config.tf = self.t
             self.sa.TDS.run()
-        else: # t == 0, we run PFlow and init TDS
+        else:  # t == 0, we run PFlow and init TDS
             self.sa.PQ.set(src='p0', attr='v',
                            idx=self.sp.DCOPF.pd.get_all_idxes(),
                            value=self.sp.DCOPF.pd.v)
@@ -233,7 +235,8 @@ class CoSimulation:
         agc_total = self.link[['agov', 'adg', 'arg']].sum().sum()
         self.out.loc[self.t, 'AGC'] = mva * agc_total
 
-        self.out.loc[self.t, 'kload'] = self.curve.loc[self.t, 'Load']  # store the kload value
+        self.out.loc[self.t, 'kload'] = self.curve.loc[self.t,
+                                                       'Load']  # store the kload value
         # 3) Update AGC PI controller
         self.ACE_raw = -(self.kp * self.sa.ACEc.ace.v.sum() +
                          self.ki * self.ACE_integral)

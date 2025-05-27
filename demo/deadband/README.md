@@ -15,11 +15,12 @@ References:
    Power Systems, vol. 32, no. 4, pp. 3258-3265, July 2017.
 
 Below list some changes to the case files:
-1. ``IL200_rted.xlsx``: based on ``IL200_opf.xlsx``, add models SFRCost and SFR for AGC study;
-   set Energy Storage p0 and q0 to 0
+1. ``IL200_opf2.xlsx``: based on ``IL200_opf.xlsx``, revise generator cost data
 1. ``IL200_dyn_new.xlsx``: based on ``IL200_dyn.xlsx``, replace model TGOV1 with TGOV1NDB; add model ACEc
 1. ``IL200_dyn_db.xlsx``: based on ``IL200_dyn_new.xlsx``, replace some GENROU with Wind, PV,
    and Energy Storage
+1. ``IL200_dyn_db2.xlsx``: based on ``IL200_dyn_db.xlsx``, offline devices in GENROU, TGOV1NDB, and SEXS
+   are removed
 
 ## Data
 
@@ -36,6 +37,10 @@ In this study, following assumptions are made:
 1. Each bus hosts at most one static generator and one dynamic generator
 1. Regulation capacity is not optimized in the RTED process
 1. Area Control Error (ACE) is assumed to be fully regulated
+
+## Results
+
+The results in ``./demo/deadband/results/`` are not guranteed to be up-to-date
 
 ## LICENSE
 

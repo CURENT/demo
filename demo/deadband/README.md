@@ -15,7 +15,8 @@ References:
    Power Systems, vol. 32, no. 4, pp. 3258-3265, July 2017.
 
 Below list some changes to the case files:
-1. ``IL200_opf2.xlsx``: based on ``IL200_opf.xlsx``, revise generator cost data
+1. ``IL200_opf2.xlsx``: based on ``IL200_opf.xlsx``, revise generator cost, controllability,
+   and pmax
 1. ``IL200_dyn_new.xlsx``: based on ``IL200_dyn.xlsx``, replace model TGOV1 with TGOV1NDB; add model ACEc
 1. ``IL200_dyn_db.xlsx``: based on ``IL200_dyn_new.xlsx``, replace some GENROU with Wind, PV,
    and Energy Storage

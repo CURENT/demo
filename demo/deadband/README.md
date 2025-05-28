@@ -16,7 +16,7 @@ References:
 
 Below list some changes to the case files:
 1. ``IL200_opf2.xlsx``: based on ``IL200_opf.xlsx``, revise generator cost, controllability,
-   and pmax
+   pmin, and pmax
 1. ``IL200_dyn_new.xlsx``: based on ``IL200_dyn.xlsx``, replace model TGOV1 with TGOV1NDB; add model ACEc
 1. ``IL200_dyn_db.xlsx``: based on ``IL200_dyn_new.xlsx``, replace some GENROU with Wind, PV,
    and Energy Storage
@@ -36,7 +36,8 @@ Then, the data is interpolated to a one-second resolution, plus normal distribut
 
 In this study, following assumptions are made:
 1. Each bus hosts at most one static generator and one dynamic generator
-1. Regulation capacity is not optimized in the RTED process
+1. Regulation capacity is not optimized in the dispatch process. Instead, 1% pmax is
+   preserved as regulation capacity.
 1. Area Control Error (ACE) is assumed to be fully regulated
 
 ## Results

@@ -138,3 +138,6 @@ dmypy.json
 /demo/data/img/vis/*.png
 
 .DS_Store
+
+# deadband study TDS results
+/demo/deadband/results/tds_**.csv

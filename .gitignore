@@ -141,3 +141,6 @@ dmypy.json
 
 # deadband study TDS results
 /demo/deadband/results/tds_**.csv
+
+# ANDES EIG reports
+**_eig.txt

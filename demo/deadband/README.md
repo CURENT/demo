@@ -1,5 +1,13 @@
 # Frequency Control Deadband
 
+## Install development version of ANDES
+
+Before the development being merged into ANDES master branch, please install it from my ``pvd2`` branch:
+
+```bash
+pip install git+https://github.com/jinningwang/andes.git@pvd2
+```
+
 ## Test Cases
 
 ``IL200_opf.xlsx`` and ``IL200_dyn.xlsx`` are revised from reference [1].

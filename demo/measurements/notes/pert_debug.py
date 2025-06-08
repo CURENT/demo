@@ -118,7 +118,7 @@ def measure(system, method=0):
         Rate of change of frequency, Hz/s (alternative method).
     """
     # --- update buffer ---
-    system.buf[system.nbuf] = system.omega * system.config.freq
+    system.buf[system.nbuf] = system.vpow
     system.nbuf += 1
 
     if system.nbuf >= system.buf.shape[0]:

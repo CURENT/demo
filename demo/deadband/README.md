@@ -44,7 +44,7 @@ Then, the data is interpolated to a one-second resolution, plus normal distribut
 
 In this study, following assumptions are made:
 1. Each bus hosts at most one static generator and one dynamic generator
-1. Regulation capacity is not optimized in the dispatch process. Instead, 1% pmax is
+1. Regulation capacity is not optimized in the dispatch process. Instead, 3% pmax is
    preserved as regulation capacity.
 1. Area Control Error (ACE) is assumed to be fully regulated
 

@@ -144,3 +144,6 @@ dmypy.json
 
 # ANDES EIG reports
 **_eig.txt
+
+# debug folder
+/icebar/**

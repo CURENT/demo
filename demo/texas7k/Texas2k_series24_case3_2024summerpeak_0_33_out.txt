@@ -3,7 +3,7 @@ Copyright (C) 2023-2025 Jinning Wang
 
 AMS comes with ABSOLUTELY NO WARRANTY
 Case file: ./Texas2k_series24_case3_2024summerpeak_0_33.RAW
-Report time: 06/30/2025 09:56:56 AM
+Report time: 06/30/2025 10:02:32 AM
 
 
 ========== System Statistics ==========

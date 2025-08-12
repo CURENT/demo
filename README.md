@@ -25,7 +25,7 @@ A collection of examples for using CURENT LTB.
 - [ANDES: TurbineGov's Response](./demo/TurbineGov_response/TurbineGov_reponse.ipynb)
 - [ANDES: Debug of TurbineGov's Response](./demo/TurbineGov_response/debug.ipynb)
 - [ANDES: Damped Oscillation](./demo/oscillation/oscillation.ipynb)
-- [ANDES: Equivalent Inertia](./demo/equivalent_inertia/equivalent_inertia.ipynb)
+- [ANDES: Equivalent Inertia ***[Under Investigation]***](./demo/equivalent_inertia/equivalent_inertia.ipynb)
 - [ANDES: Voltage Sag](./demo/misc/voltage_sag.ipynb)
 - [ANDES: Comparison of TGOV1 Variants](./demo/TGOV1/TGOV1_variants.ipynb)
 - [ANDES: Imapcts of BusFreq Parameters](./demo/misc/busfreq.ipynb)
